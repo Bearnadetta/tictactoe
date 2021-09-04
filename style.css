@@ -1,0 +1,46 @@
+/*
+#CDB4DB
+#FFC8DD
+#FFAFCC
+#BDE0FE
+#A2D2FF
+*/
+
+
+html {
+    margin: 0;
+}
+body {
+    margin: 0;
+}
+#page-container {
+    position: relative;
+    min-height: 100vh;
+    margin: 0px;
+    background-color: #CDB4DB;
+}
+#header {
+    height: 5rem;
+    background-color: #FFC8DD;
+}
+#content-wrap {
+    padding-bottom: 2.5rem;
+}
+#footer {
+    background-color: #FFC8DD;
+    color: #CDB4DB;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: 2.5rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+#gitHubLink {
+    color:#CDB4DB    ;
+}
+#gitHubLink.visited {
+    color:#CDB4DB;
+}
