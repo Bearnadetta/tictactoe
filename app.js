@@ -1,14 +1,17 @@
+
 const Gameboard = (function() {
     'use strict';
     let display = document.getElementById('tictactoe-game');
-    let boardArray = [];
+    let boardArray = ['','','','','','','','',''];
     const makeBoard = function() {
         display.textContent = '';
-        for (let i = 0; i < 9; i++) {
+        for (let i = 0; i < boardArray.length; i++) {
             let square = document.createElement('div');
             square.className = 'square';
             square.setAttribute('data-position', i);
-            boardArray.push(square);
+            //writes the boardArray value to the square if the value is X or O
+                if(boardArray[i] == 'X' || boardArray[i] == 'O') {
+                    square.textContent = (boardArray[i]); }
             display.appendChild(square);
         }
     }
@@ -19,8 +22,16 @@ const Gameboard = (function() {
 })();
 
 const players = (function(){
+    let targetSquare = '';
     const playerFactory = (playerName, gamePiece) => {
-        return {playerName, gamePiece};
+        return {
+            playerName: playerName,
+            gamePiece: gamePiece,
+            takeTurn: function(){
+                
+            }
+            
+        };
     }
     const playerOne = playerFactory('Player 1', 'X');
     const playerTwo = playerFactory('Player 2', 'O');
@@ -30,6 +41,10 @@ const players = (function(){
     }
 })();
 
+const gameLogic = (function() {
+    let arrayValues = Gameboard.boardArray;
+    return console.log(arrayValues);
+})();
 
 Gameboard.makeBoard();
-console.log(players);
+//console.log(players);
