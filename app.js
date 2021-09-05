@@ -18,6 +18,17 @@ const Gameboard = (function() {
     };
 })();
 
+const players = (function(){
+    const playerFactory = (playerName, gamePiece) => {
+        return {playerName, gamePiece};
+    }
+    const playerOne = playerFactory('Player 1', 'X');
+    const playerTwo = playerFactory('Player 2', 'O');
+    return {
+        playerOne: playerOne,
+        playerTwo: playerTwo,
+    }
+})();
 
 
 Gameboard.makeBoard();
