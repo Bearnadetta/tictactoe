@@ -32,3 +32,4 @@ const players = (function(){
 
 
 Gameboard.makeBoard();
+console.log(players);
