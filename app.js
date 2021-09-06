@@ -25,24 +25,18 @@ const players = (function(){
     const playerFactory = (playerName, gamePiece) => {
         takeTurn = function(){
             let attribute = this.getAttribute('data-position');
-            let symbol = GameLogic.currentPlayer.gamePiece;
-            console.log(attribute);
-            Gameboard.boardArray[attribute] = symbol;
-            Gameboard.makeBoard();
-            GameLogic.togglePlayer();
+            let symbol = currentPlayer.gamePiece;
+            if(Gameboard.boardArray[attribute] === ''){
+                Gameboard.boardArray[attribute] = symbol;
+                Gameboard.makeBoard();
+                togglePlayer();
+            }
         }
         return { playerName, gamePiece, takeTurn};
     }
     
     const playerOne = playerFactory('Player 1', 'X');
     const playerTwo = playerFactory('Player 2', 'O');
-    return {playerOne, playerTwo, takeTurn}
-})();
-
-const GameLogic = (function() {
-    let arrayValues = Gameboard.boardArray;
-    let playerOne = players.playerOne;
-    let playerTwo = players.playerTwo;
     let currentPlayer = playerOne;
     let otherPlayer = playerTwo;
     const togglePlayer = function() {
@@ -51,7 +45,12 @@ const GameLogic = (function() {
         otherPlayer = storedVal;
         return(currentPlayer, otherPlayer)
     }
-    return {currentPlayer, togglePlayer, arrayValues};
+    return {playerOne, playerTwo, takeTurn, togglePlayer}
+})();
+
+const GameLogic = (function() {
+    let arrayValues = Gameboard.boardArray;
+    return {arrayValues};
 })();
 
 Gameboard.makeBoard();
