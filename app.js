@@ -9,6 +9,7 @@ const Gameboard = (function() {
             let square = document.createElement('div');
             square.className = 'square';
             square.setAttribute('data-position', i);
+            square.addEventListener('click', players.takeTurn);
             //writes the boardArray value to the square if the value is X or O
                 if(boardArray[i] == 'X' || boardArray[i] == 'O') {
                     square.textContent = (boardArray[i]); }
@@ -27,17 +28,17 @@ const players = (function(){
         return {
             playerName: playerName,
             gamePiece: gamePiece,
-            takeTurn: function(){
-                
-            }
-            
         };
+    }
+    const takeTurn = function(){
+        console.log(this);
     }
     const playerOne = playerFactory('Player 1', 'X');
     const playerTwo = playerFactory('Player 2', 'O');
     return {
         playerOne: playerOne,
         playerTwo: playerTwo,
+        takeTurn: takeTurn,
     }
 })();
 
