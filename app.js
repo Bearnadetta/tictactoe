@@ -11,8 +11,7 @@ const Gameboard = (function() {
             square.setAttribute('data-position', i);
             square.addEventListener('click', players.takeTurn);
             //writes the boardArray value to the square if the value is X or O
-                if(boardArray[i] == 'X' || boardArray[i] == 'O') {
-                    square.textContent = (boardArray[i]); }
+            square.textContent = (boardArray[i]); 
             display.appendChild(square);
         }
     }
@@ -23,28 +22,36 @@ const Gameboard = (function() {
 })();
 
 const players = (function(){
-    let targetSquare = '';
     const playerFactory = (playerName, gamePiece) => {
-        return {
-            playerName: playerName,
-            gamePiece: gamePiece,
-        };
+        takeTurn = function(){
+            let attribute = this.getAttribute('data-position');
+            let symbol = GameLogic.currentPlayer.gamePiece;
+            console.log(attribute);
+            Gameboard.boardArray[attribute] = symbol;
+            Gameboard.makeBoard();
+            GameLogic.togglePlayer();
+        }
+        return { playerName, gamePiece, takeTurn};
     }
-    const takeTurn = function(){
-        console.log(this);
-    }
+    
     const playerOne = playerFactory('Player 1', 'X');
     const playerTwo = playerFactory('Player 2', 'O');
-    return {
-        playerOne: playerOne,
-        playerTwo: playerTwo,
-        takeTurn: takeTurn,
-    }
+    return {playerOne, playerTwo, takeTurn}
 })();
 
-const gameLogic = (function() {
+const GameLogic = (function() {
     let arrayValues = Gameboard.boardArray;
-    return console.log(arrayValues);
+    let playerOne = players.playerOne;
+    let playerTwo = players.playerTwo;
+    let currentPlayer = playerOne;
+    let otherPlayer = playerTwo;
+    const togglePlayer = function() {
+        let storedVal = currentPlayer;
+        currentPlayer = otherPlayer;
+        otherPlayer = storedVal;
+        return(currentPlayer, otherPlayer)
+    }
+    return {currentPlayer, togglePlayer, arrayValues};
 })();
 
 Gameboard.makeBoard();
