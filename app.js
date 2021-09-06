@@ -1,6 +1,5 @@
 
 const Gameboard = (function() {
-    'use strict';
     let display = document.getElementById('tictactoe-game');
     let boardArray = ['','','','','','','','',''];
     const makeBoard = function() {
@@ -10,15 +9,11 @@ const Gameboard = (function() {
             square.className = 'square';
             square.setAttribute('data-position', i);
             square.addEventListener('click', players.takeTurn);
-            //writes the boardArray value to the square if the value is X or O
             square.textContent = (boardArray[i]); 
             display.appendChild(square);
         }
     }
-    return {
-        makeBoard: makeBoard,
-        boardArray: boardArray,
-    };
+    return {makeBoard, boardArray};
 })();
 
 const players = (function(){
@@ -29,6 +24,7 @@ const players = (function(){
             if(Gameboard.boardArray[attribute] === ''){
                 Gameboard.boardArray[attribute] = symbol;
                 Gameboard.makeBoard();
+                GameLogic.checkWin();
                 togglePlayer();
             }
         }
@@ -43,14 +39,30 @@ const players = (function(){
         let storedVal = currentPlayer;
         currentPlayer = otherPlayer;
         otherPlayer = storedVal;
-        return(currentPlayer, otherPlayer)
+        return(currentPlayer, otherPlayer);
     }
-    return {playerOne, playerTwo, takeTurn, togglePlayer}
+    return {playerOne, playerTwo, takeTurn, togglePlayer, currentPlayer, otherPlayer}
 })();
 
 const GameLogic = (function() {
     let arrayValues = Gameboard.boardArray;
-    return {arrayValues};
+    const checkWin = function(){
+        if((arrayValues[0] === arrayValues[1] && arrayValues[1] === arrayValues[2] && arrayValues[1] !== '') 
+        || (arrayValues[0] === arrayValues[3] && arrayValues[3] === arrayValues[6] && arrayValues[3] !== '')
+        || (arrayValues[0] === arrayValues[4] && arrayValues[4] === arrayValues[8] && arrayValues[4] !== '')
+        || (arrayValues[1] === arrayValues[4] && arrayValues[4] === arrayValues[7] && arrayValues[4] !== '')
+        || (arrayValues[2] === arrayValues[5] && arrayValues[5] === arrayValues[8] && arrayValues[5] !== '')
+        || (arrayValues[3] === arrayValues[4] && arrayValues[4] === arrayValues[5] && arrayValues[4] !== '')
+        || (arrayValues[6] === arrayValues[4] && arrayValues[4] === arrayValues[2] && arrayValues[4] !== '')
+        || (arrayValues[6] === arrayValues[7] && arrayValues[7] === arrayValues[8] && arrayValues[7] !== '')){
+            let winner = players.currentPlayer.playerName;
+            alert('The winner is ' + winner + '!');
+        } else if( arrayValues[0] !== '' && arrayValues[1] !== '' && arrayValues[2] !== '' && arrayValues[3] !== '' && arrayValues[4] !== ''
+        && arrayValues[5] !== '' && arrayValues[6] !== '' && arrayValues[7] !== '' && arrayValues[8] !== '') {
+            alert('it\'s a draw!');
+        }
+    }
+    return{checkWin,}
 })();
 
 Gameboard.makeBoard();
