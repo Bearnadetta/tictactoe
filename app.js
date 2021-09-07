@@ -33,17 +33,18 @@ const gameBoard = (() => {
 })();
 
 const gameLogic = (() => {
+    // establishing variables for setup, creating two players
     const playerOne = Player('PlayerOne', 'X')
     const playerTwo = Player('PlayerTwo', 'O')
+    let activePlayer = playerOne; 
 
-    let activePlayer = playerOne;
-
-    const winCons = [[0,1,2,],[3,4,5],[6,7,8],[0,4,8],[2,4,6],[0,3,6],[1,4,7],[2,5,8]];
-
+    //an Array of potential win conditions
+    const winCons = [[0,1,2,],[3,4,5],[6,7,8],[0,4,8],[2,4,6],[0,3,6],[1,4,7],[2,5,8]]; 
+    //switches the current active player
     function togglePlayer() {
         this.activePlayer === playerOne ? this.activePlayer = playerTwo : this.activePlayer = playerOne;
     }
-
+    //called on each legal play in order to check for a winner or a draw
     function winCheck() {
         let myArray = gameBoard.boardArray
         console.log(myArray)
