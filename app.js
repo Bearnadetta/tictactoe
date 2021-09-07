@@ -82,28 +82,60 @@ Gameboard.makeBoard();
 //let's try this, but better and with my failures under my belt
 
 const Player = (playerName, gamePiece) => {
-    return {playerName, gamePiece}
+    return {playerName, gamePiece};
 }
 
 const gameBoard = (() => {
-    const makeBoard = () => {
-        let display = document.getElementById('tictactoe-game');
-        let currentArray = gameLogic.boardArray;
-        for (let i = 0; i < currentArray.length; i++) {
-            let square = document.createElement('div');
-            square.className = 'square';
-            square.setAttribute('data-position', i);
-            square.addEventListener('click', console.log(this));
-            square.textContent = ''; 
-            display.appendChild(square);
-        }
 
+    let boardArray = []
+    for( let i = 0; i < 9; i++) {
+        boardArray.push('')
     }
-    return{makeBoard}
+
+    function makeBoard() {
+        let display = document.getElementById('tictactoe-game')
+        for (let i = 0; i < boardArray.length; i++) {
+            let square = document.createElement('div')
+            square.className = 'square'
+            square.setAttribute('data-position', i)
+            square.addEventListener('click', () => {
+                let data = square.getAttribute('data-position')
+                console.log(data)
+                if(boardArray[data] === '') {
+                    boardArray[data] = gameLogic.activePlayer.gamePiece
+                    square.textContent = gameLogic.activePlayer.gamePiece
+                    gameLogic.winCheck();
+                    gameLogic.togglePlayer()
+                }
+            })
+            display.appendChild(square)
+        }
+    }
+    makeBoard();
+    return{boardArray};
 })();
 
 const gameLogic = (() => {
-    const boardArray = ['','','','','','','','',''];
-    return {boardArray}
+    const playerOne = Player('PlayerOne', 'X')
+    const playerTwo = Player('PlayerTwo', 'O')
+
+    let activePlayer = playerOne;
+
+    const winCons = [[0,1,2,],[3,4,5],[6,7,8],[0,4,8],[2,4,6],[0,3,6],[1,4,7],[2,5,8]];
+
+    function togglePlayer() {
+        this.activePlayer === playerOne ? this.activePlayer = playerTwo : this.activePlayer = playerOne;
+    }
+
+    function winCheck() {
+        let myArray = gameBoard.boardArray
+        console.log(myArray)
+        winCons.forEach((item, index) => {
+            if (myArray[item[0]] === this.activePlayer.gamePiece && myArray[item[1]] === this.activePlayer.gamePiece && myArray[item[2]] === this.activePlayer.gamePiece) {
+                return console.log('Game Over!')
+            }
+        })
+    }
+
+    return {activePlayer, togglePlayer, winCheck};
 })();
-gameBoard.makeBoard()
