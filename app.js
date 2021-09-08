@@ -3,14 +3,13 @@ const Player = (playerName, gamePiece) => {
 }
 
 const gameBoard = (() => {
-
     let boardArray = []
+    let display = document.getElementById('tictactoe-game')
+    display.textContent = ''
     for( let i = 0; i < 9; i++) {
         boardArray.push('')
     }
-
     function makeBoard() {
-        let display = document.getElementById('tictactoe-game')
         for (let i = 0; i < boardArray.length; i++) {
             let square = document.createElement('div')
             square.className = 'square'
@@ -28,7 +27,7 @@ const gameBoard = (() => {
             display.appendChild(square)
         }
     }
-    makeBoard();
+        makeBoard();
     return{boardArray};
 })();
 
@@ -69,3 +68,4 @@ const gameLogic = (() => {
 
     return {activePlayer, togglePlayer, winCheck};
 })();
+
