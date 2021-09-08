@@ -5,15 +5,13 @@ const Player = (playerName, gamePiece) => {
 const gameBoard = (() => {
     let boardArray = []
     let display = document.getElementById('tictactoe-game')
-    display.textContent = ''
     for( let i = 0; i < 9; i++) {
         boardArray.push('')
     }
-    function makeBoard() {
-        for (let i = 0; i < boardArray.length; i++) {
-            let square = document.createElement('div')
-            square.className = 'square'
-            square.setAttribute('data-position', i)
+    let squaresCollection = display.getElementsByClassName('square')
+    let squares = Array.prototype.slice.call(squaresCollection)
+    squares.forEach((square, i) => {
+        square.setAttribute('data-position', i)
             square.addEventListener('click', () => {
                 let data = square.getAttribute('data-position')
                 console.log(data)
@@ -24,10 +22,7 @@ const gameBoard = (() => {
                     gameLogic.togglePlayer()
                 }
             })
-            display.appendChild(square)
-        }
-    }
-        makeBoard();
+    });
     return{boardArray};
 })();
 
