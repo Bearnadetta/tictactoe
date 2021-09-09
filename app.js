@@ -1,3 +1,4 @@
+// player factory function
 const Player = (playerName, gamePiece) => {
     return {playerName, gamePiece};
 }
@@ -23,7 +24,7 @@ const gameBoard = (() => {
                 }
             })
     });
-    return{boardArray};
+    return{boardArray}; //returns board array in object
 })();
 
 const gameLogic = (() => {
