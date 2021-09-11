@@ -28,7 +28,6 @@ body {
     padding-bottom: 2.5rem;
 }
 #game-container {
-    border: 1px solid black;
     display: block;
     margin: auto;
     height: 500px;
