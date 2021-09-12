@@ -38,7 +38,6 @@ body {
 }
 #tictactoe-game {
     display: grid;
-    border: 1px solid black;
     height: 90%;
     width: 90%;
     margin-left: auto;
@@ -50,12 +49,24 @@ body {
 .square {
     display: block;
     overflow: hidden;
-    background-color: #FFC8DD;
-    border: 1px solid black;
     font-size: 8rem;
     align-items: center;
     text-align: center;
 }
+
+#square0, #square1, #square2 {
+    border-bottom: 5px solid #FFC8DD;
+}
+#square0, #square3, #square6 {
+    border-right: 5px solid #FFC8DD;
+}
+#square2, #square5, #square8 {
+    border-left: 5px solid #FFC8DD;
+}
+#square6, #square7, #square8 {
+    border-top: 5px solid #FFC8DD;
+}
+
 #footer {
     background-color: #FFC8DD;
     color: #CDB4DB;
