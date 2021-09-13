@@ -38,13 +38,10 @@ const game = (() => {
     }
 
     grid.forEach((square, i) => {
-        
+        square.setAttribute('data-position', i)
         square.addEventListener('click', () => {
-            if(square.textContent = '') {
-                square.textContent = this.activePlayer.gamePiece;
-                gameState[i] = this.activePlayer.gamePiece;
-                togglePlayer();
-            }
+        let data = square.getAttribute('data-position')
+        console.log(data);
         })
     }) 
     return{gameState, reset, togglePlayer}
