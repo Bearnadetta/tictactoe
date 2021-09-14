@@ -34,7 +34,7 @@ const game = (() => {
     }
     //switches the current active player
     function togglePlayer() {
-        this.activePlayer === playerOne ? this.activePlayer = playerTwo : this.activePlayer = playerOne;
+        activePlayer === playerOne ? activePlayer = playerTwo : activePlayer = playerOne;
     }
     function boardSet() {
         grid.forEach((square, i) => {
@@ -42,6 +42,11 @@ const game = (() => {
             square.addEventListener('click', () => {
             let data = square.getAttribute('data-position')
             console.log(data);
+            if (gameBoard.boardArray[data] === '') {
+                gameBoard.boardArray[data] = activePlayer.gamePiece
+                square.textContent = activePlayer.gamePiece
+                togglePlayer();
+            }
             })
         }) 
     }
