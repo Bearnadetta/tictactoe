@@ -36,13 +36,16 @@ const game = (() => {
     function togglePlayer() {
         this.activePlayer === playerOne ? this.activePlayer = playerTwo : this.activePlayer = playerOne;
     }
-
-    grid.forEach((square, i) => {
-        square.setAttribute('data-position', i)
-        square.addEventListener('click', () => {
-        let data = square.getAttribute('data-position')
-        console.log(data);
-        })
-    }) 
-    return{gameState, reset, togglePlayer}
+    function boardSet() {
+        grid.forEach((square, i) => {
+            square.setAttribute('data-position', i)
+            square.addEventListener('click', () => {
+            let data = square.getAttribute('data-position')
+            console.log(data);
+            })
+        }) 
+    }
+    
+    return{gameState, reset, togglePlayer, boardSet}
 })();
+game.boardSet();
