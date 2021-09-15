@@ -40,11 +40,9 @@ const game = (() => {
     function winCheck() {
         let winner = ''
         let gameOver = false
-        console.log(activePlayer.gamePiece)
         winCons.forEach((item) => {
-            if (gameState[item[0]] === activePlayer.gamePiece && gameState[item[1]] === gameState.gamePiece && gameState[item[2]] === activePlayer.gamePiece) {
+            if (gameState[item[0]] == activePlayer.gamePiece && gameState[item[1]] == activePlayer.gamePiece && gameState[item[2]] == activePlayer.gamePiece) {
                 winner = activePlayer.playerName
-                
             } 
         })
         if (!gameState.includes('') && winner === '') {
@@ -53,9 +51,6 @@ const game = (() => {
         } else if (winner !== '') {
             gameOver = true;
             return alert('Game Over! ' + winner + ' is the winner!') 
-        }
-        if(gameOver === true) {
-
         }
     }
     function boardSet() {
