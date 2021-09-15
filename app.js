@@ -22,6 +22,7 @@ const game = (() => {
     let gameState = gameBoard.boardArray;
     let grid = displayController.squares;
     // establishing variables for setup, creating two players
+    let gameOver = false
     const playerOne = Player('PlayerOne', 'X')
     const playerTwo = Player('PlayerTwo', 'O')
     let activePlayer = playerOne; 
@@ -32,6 +33,7 @@ const game = (() => {
         grid.forEach(square => square.textContent = '')
         gameState = ['','','','','','','','',''];
         activePlayer = playerOne;
+        gameOver = false
     }
     //switches the current active player
     function togglePlayer() {
@@ -39,7 +41,6 @@ const game = (() => {
     }
     function winCheck() {
         let winner = ''
-        let gameOver = false
         winCons.forEach((item) => {
             if (gameState[item[0]] == activePlayer.gamePiece && gameState[item[1]] == activePlayer.gamePiece && gameState[item[2]] == activePlayer.gamePiece) {
                 winner = activePlayer.playerName
@@ -59,7 +60,7 @@ const game = (() => {
             square.addEventListener('click', () => {
             let data = square.getAttribute('data-position')
             console.log(data);
-            if (gameState[data] === '') {
+            if (gameState[data] === '' && gameOver === false) {
                 gameState[data] = activePlayer.gamePiece
                 square.textContent = activePlayer.gamePiece
                 winCheck();
