@@ -23,9 +23,26 @@ body {
     background-color: #CDB4DB;
 }
 #header {
+    display: flex;
     height: 5rem;
     background-color: #FFC8DD;
 }
+#playerOne {
+    border: 1px solid black;
+    height: 100%;
+    width: 33%;
+}
+#versus {
+    border: 1px solid black;
+    width: 34%;
+    height: 100%;
+}
+#playerTwo {
+    border: 1px solid black;
+    height: 100%;
+    width: 33%;
+}
+
 #content-wrap {
     padding-top: 5rem;
     padding-bottom: 2.5rem;
