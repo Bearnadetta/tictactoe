@@ -28,21 +28,19 @@ body {
     background-color: #FFC8DD;
 }
 #playerOne {
-    border: 1px solid black;
     height: 100%;
     width: 33%;
-    align-items: right;
+    text-align: right;
 }
 #versus {
-    border: 1px solid black;
     width: 34%;
     height: 100%;
+    text-align: center;
 }
 #playerTwo {
-    border: 1px solid black;
     height: 100%;
     width: 33%;
-    align-items: left;
+    text-align: left;
 }
 
 #content-wrap {
