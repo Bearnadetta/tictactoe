@@ -108,6 +108,16 @@ body {
     align-items: center;
     text-align: center;
 }
+.winAlert {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #a77e8e;
+    opacity: 80%;
+    visibility: hidden;
+}
 #gitHubLink {
     color:#CDB4DB    ;
 }
