@@ -30,7 +30,12 @@ const game = (() => {
     const winCons = [[0,1,2,],[3,4,5],[6,7,8],[0,4,8],[2,4,6],[0,3,6],[1,4,7],[2,5,8]]; 
     //starts and resets the game by emptying squares
     function reset() {
-        grid.forEach(square => square.textContent = '')
+        grid.forEach((square) => {
+            square.textContent = ''
+            if(!square.classList.contains('empty')) {
+                square.classList.add('empty')
+            }
+        })
         gameState = ['','','','','','','','',''];
         activePlayer = playerOne;
         gameOver = false
@@ -51,23 +56,24 @@ const game = (() => {
             return alert('it\'s a draw!')
         } else if (winner !== '') {
             gameOver = true;
+            grid.forEach(square => square.classList.remove('empty'));
             return alert('Game Over! ' + winner + ' is the winner!') 
         }
     }
     function boardSet() {
         grid.forEach((square, i) => {
             square.setAttribute('data-position', i)
-            square.addEventListener('click', () => {
+            square.classList.add('empty')
             let data = square.getAttribute('data-position')
-            console.log(data);
+            square.addEventListener('click', () => {
             if (gameState[data] === '' && gameOver === false) {
                 gameState[data] = activePlayer.gamePiece
                 square.textContent = activePlayer.gamePiece
+                square.classList.remove('empty')
                 winCheck();
                 togglePlayer();
-                
             }
-            })
+            })    
         }) 
         resetBtn.addEventListener('click', () => {
             reset();
