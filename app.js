@@ -15,7 +15,29 @@ const displayController = (() => {
     const squares = Array.from(boardContainer.getElementsByClassName('square'))
     const resetBtn = document.getElementById('resetBtn');
     const newGameBtn = document.getElementById('newGameBtn');
-    return{boardContainer, squares, resetBtn, newGameBtn}
+    const renamePlayerOneBtn = document.getElementById('renamePlayerOne');
+    const renamePlayerTwoBtn = document.getElementById('renamePlayerTwo');
+    const startBtn = document.getElementById('startBtn');
+    const gameMenu = document.getElementById('winAlertDisplay');
+    const winMessage = document.getElementById('winMessage');
+    const playerOneTitle = document.getElementById('playerOne');
+    const playerTwoTitle = document.getElementById('playerTwo');
+    const playerOneName = document.getElementById('playerOneName');
+    const playerTwoName = document.getElementById('playerTwoName');
+    return{boardContainer, 
+        squares, 
+        resetBtn, 
+        newGameBtn, 
+        renamePlayerOneBtn, 
+        renamePlayerTwoBtn, 
+        startBtn, 
+        gameMenu,
+        winMessage,
+        playerOneTitle,
+        playerTwoTitle,
+        playerOneName,
+        playerTwoName
+    }
 })();
 
 const game = (() => {
