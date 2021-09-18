@@ -45,8 +45,10 @@ const game = (() => {
     let grid = displayController.squares;
     // establishing variables for setup, creating two players
     let gameOver = false
-    const playerOne = Player('PlayerOne', 'X')
-    const playerTwo = Player('PlayerTwo', 'O')
+    let playerX = displayController.playerOneName.textContent
+    let playerO = displayController.playerTwoName.textContent
+    let playerOne = Player(playerX, 'X')
+    let playerTwo = Player(playerO, 'O')
     let activePlayer = playerOne; 
     //an Array of potential win conditions
     const winCons = [[0,1,2,],[3,4,5],[6,7,8],[0,4,8],[2,4,6],[0,3,6],[1,4,7],[2,5,8]]; 

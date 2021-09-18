@@ -122,6 +122,7 @@ body {
     background-color: #a77e8e;
     opacity: 90%;
     z-index: 1;
+    visibility: hidden;
 }
 
 .nameInputs {
