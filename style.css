@@ -107,16 +107,33 @@ body {
     justify-content: space-around;
     align-items: center;
     text-align: center;
+    z-index: 0;
 }
 .winAlert {
     position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     top: 0;
     right: 0;
     left: 0;
     bottom: 0;
     background-color: #a77e8e;
-    opacity: 80%;
-    visibility: hidden;
+    opacity: 90%;
+    z-index: 1;
+}
+
+.nameInputs {
+    display: flex;
+    padding: 20px;
+    margin: 20px;
+}
+.playerInput {
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
 }
 #gitHubLink {
     color:#CDB4DB    ;
