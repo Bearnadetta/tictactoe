@@ -64,6 +64,14 @@ const game = (() => {
         activePlayer = playerOne;
         gameOver = false
     }
+    // starts the game, updates player names and titles
+    function startGame() {
+
+    }
+    // new game button to bring up menu and allow for renaming
+    function newGame() {
+
+    }
     //switches the current active player
     function togglePlayer() {
         activePlayer === playerOne ? activePlayer = playerTwo : activePlayer = playerOne;
@@ -105,6 +113,6 @@ const game = (() => {
         })
     }
     
-    return{gameState, reset, togglePlayer, boardSet}
+    return{gameState, reset, togglePlayer, boardSet, newGame, startGame}
 })();
 game.boardSet();
