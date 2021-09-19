@@ -24,6 +24,26 @@ const displayController = (() => {
     const playerTwoTitle = document.getElementById('playerTwo');
     const playerOneName = document.getElementById('playerOneName');
     const playerTwoName = document.getElementById('playerTwoName');
+    startBtn.addEventListener('click', function () {
+        game.startGame();
+    })
+    newGameBtn.addEventListener('click', function () {
+        game.newGame();
+    })
+    renamePlayerOneBtn.addEventListener('click', function () {
+        let xPlayer = prompt ('Please Enter Your Name', 'Player One')
+        if (xPlayer != null) {
+            playerOneTitle.textContent = xPlayer
+            playerOneName.textContent = xPlayer
+        }
+    })
+    renamePlayerTwoBtn.addEventListener('click', function () {
+        let oPlayer = prompt ('Please Enter Your Name', 'Player Two')
+        if (oPlayer != null) {
+            playerTwoTitle.textContent = oPlayer
+            playerTwoName.textContent = oPlayer
+        }
+    })
     return{boardContainer, 
         squares, 
         resetBtn, 
@@ -66,6 +86,15 @@ const game = (() => {
     }
     // starts the game, updates player names and titles
     function startGame() {
+        
+        playerX = displayController.playerOneName.textContent
+        playerO = displayController.playerTwoName.textContent
+        playerOne = Player(playerX, 'X')
+        playerTwo = Player(playerO, 'O')
+        displayController.gameMenu.classList.add('invisible')
+        boardSet();
+
+
 
     }
     // new game button to bring up menu and allow for renaming
@@ -115,4 +144,3 @@ const game = (() => {
     
     return{gameState, reset, togglePlayer, boardSet, newGame, startGame}
 })();
-game.boardSet();

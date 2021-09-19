@@ -27,7 +27,7 @@ body {
     height: 5rem;
     background-color: #FFC8DD;
 }
-#playerOne {
+.playerOne {
     height: 100%;
     width: 33%;
     text-align: right;
@@ -37,7 +37,7 @@ body {
     height: 100%;
     text-align: center;
 }
-#playerTwo {
+.playerTwo {
     height: 100%;
     width: 33%;
     text-align: left;
@@ -122,9 +122,10 @@ body {
     background-color: #a77e8e;
     opacity: 90%;
     z-index: 1;
+}
+.invisible {
     visibility: hidden;
 }
-
 .nameInputs {
     display: flex;
     padding: 20px;
