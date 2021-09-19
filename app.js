@@ -91,6 +91,7 @@ const game = (() => {
         playerO = displayController.playerTwoName.textContent
         playerOne = Player(playerX, 'X')
         playerTwo = Player(playerO, 'O')
+        activePlayer = playerOne
         displayController.gameMenu.classList.add('invisible')
         boardSet();
 
