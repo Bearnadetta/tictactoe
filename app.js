@@ -77,6 +77,7 @@ const game = (() => {
     function reset() {
         grid.forEach((square) => {
             square.textContent = ''
+            square.classList.remove('full')
             if(!square.classList.contains('empty')) {
                 square.classList.add('empty')
             }
@@ -123,7 +124,10 @@ const game = (() => {
             reset()
         } else if (winner !== '') {
             gameOver = true;
-            grid.forEach(square => square.classList.remove('empty'));
+            grid.forEach(square => {
+                square.classList.remove('empty')
+                square.classList.remove('full')
+            })
             displayController.gameMenu.classList.remove('invisible')
             winMessage.textContent = (winner + ' is the winner! Play again?')
             reset()
@@ -140,6 +144,7 @@ const game = (() => {
                     gameState[data] = activePlayer.gamePiece
                     square.textContent = activePlayer.gamePiece
                     square.classList.remove('empty')
+                    square.classList.add('full')
                     winCheck();
                     togglePlayer();
                 }

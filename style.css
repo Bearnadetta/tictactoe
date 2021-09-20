@@ -87,6 +87,9 @@ body {
 .empty:hover {
     background-color:#b39dc0;
 }
+.full:hover {
+    cursor: not-allowed;
+}
 #buttonDiv {
     display: flex;
     justify-content: center;
