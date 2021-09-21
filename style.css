@@ -15,6 +15,7 @@ body {
 }
 * {
     box-sizing: border-box;
+    font: 1em sans-serif;
 }
 #page-container {
     position: relative;
@@ -26,21 +27,25 @@ body {
     display: flex;
     height: 5rem;
     background-color: #FFC8DD;
+    box-shadow: 0 0 5px 5px #9f8daa;
 }
 .playerOne {
     height: 100%;
     width: 33%;
     text-align: right;
+    font-size: 2rem;
 }
 #versus {
     width: 34%;
     height: 100%;
     text-align: center;
+    font-size: 2rem;
 }
 .playerTwo {
     height: 100%;
     width: 33%;
     text-align: left;
+    font-size: 2rem;
 }
 
 #content-wrap {
@@ -124,6 +129,7 @@ body {
     align-items: center;
     text-align: center;
     z-index: 0;
+    box-shadow: 0 -5px 5px 5px #9f8daa;
 }
 .winAlert {
     position: fixed;
@@ -152,6 +158,10 @@ body {
     padding: 20px;
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+#winMessage {
+    font-size: 3rem;
 }
 #gitHubLink {
     color:#CDB4DB    ;
