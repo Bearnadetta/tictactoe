@@ -31,19 +31,19 @@ body {
 }
 .playerOne {
     height: 100%;
-    width: 33%;
+    width: 40%;
     text-align: right;
     font-size: 2rem;
 }
 #versus {
-    width: 34%;
+    width: 20%;
     height: 100%;
     text-align: center;
     font-size: 2rem;
 }
 .playerTwo {
     height: 100%;
-    width: 33%;
+    width: 40%;
     text-align: left;
     font-size: 2rem;
 }
