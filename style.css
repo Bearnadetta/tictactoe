@@ -135,7 +135,6 @@ body {
     position: fixed;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     top: 0;
     right: 0;
@@ -151,7 +150,7 @@ body {
 .nameInputs {
     display: flex;
     padding: 20px;
-    margin: 20px;
+    margin-top: 10%;
 }
 .playerInput {
     margin: 20px;
