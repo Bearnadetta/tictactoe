@@ -110,6 +110,7 @@ const game = (() => {
     function togglePlayer() {
         activePlayer === playerOne ? activePlayer = playerTwo : activePlayer = playerOne;
     }
+    //checks current gamestate for satisfied win conditions
     function winCheck() {
         let winner = ''
         winCons.forEach((item) => {
@@ -133,6 +134,7 @@ const game = (() => {
             reset()
         }
     }
+    //creates game board
     function boardSet() {
         if(boardIsSet === false) {
             grid.forEach((square, i) => {
