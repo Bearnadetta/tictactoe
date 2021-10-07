@@ -4,7 +4,7 @@
 const Player = (playerName, gamePiece) => {
     return {playerName, gamePiece};
 }
-
+//gameBoard constant
 const gameBoard = (() => {
     let boardArray = ['','','','','','','','','']
     return{boardArray}
@@ -152,7 +152,7 @@ const game = (() => {
                 }
                 })    
             }) 
-            resetBtn.addEventListener('click', () => {
+            resetBtn.addEventListener('click', () => { 
                 reset();
                 console.log(gameState)
             })
