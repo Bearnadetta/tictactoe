@@ -6,7 +6,9 @@
 #A2D2FF
 */
 
-
+HTML{
+    margin: 0;
+}
 body {
     margin: 0;
 }
