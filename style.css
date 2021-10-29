@@ -114,7 +114,7 @@ body {
     background-color: #799bbb;
 }
 .button:active {
-    transform: translateY(4px);
+    transform: translateY(3px);
 }
 #footer {
     background-color: #FFC8DD;
