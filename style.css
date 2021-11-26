@@ -5,7 +5,9 @@
 #BDE0FE
 #A2D2FF
 */
-
+html {
+    margin: 0;
+}
 * {
     box-sizing: border-box;
     font: 1em sans-serif;
